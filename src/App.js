@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import "./App.css";
+import CreateCandidate from "./components/CreateCandidate";
+import Header from "./components/Header";
+import ListCandidates from "./components/ListCandidates";
 
 function App() {
+  const [candidates, setCandidates] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/candidate/getAllCandidates")
+      .then(function (response) {
+        setCandidates(response.data)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <CreateCandidate />
+      <ListCandidates candidates={candidates} />
     </div>
   );
 }

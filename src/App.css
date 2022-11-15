@@ -1,38 +1,132 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Mono", monospace;
+  text-decoration: none;
+  list-style-type: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: rgb(228, 245, 233);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/*HEADER START*/
+header {
+  background-color: #0c89ef;
+  color: #ffff;
+  width: 100%;
+  height: 8vh;
+  min-width: 520px;
+  padding: 1%;
+  padding-left: 10%;
+  font-weight: bold;
+  font-size: 35px;
+}
+/* HEADER END */
+
+/* BUTTONS START */
+.create-btn {
+  background-color: #00b900;
+  position: relative;
+  float: right;
+  margin-top: 2px;
+  margin-right: 2px;
+  border: 1px solid #00b900;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.create-btn i {
+  margin: 25px 40px;
+  color: #ffff;
+}
+
+.dot-btn {
+  width: 3%;
+  background-color: rgb(211, 214, 219);
+  border: none;
+  cursor: pointer;
+}
+
+li button i {
+  color: black;
+}
+
+.modal-content .close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border: none;
+}
+
+/* BUTTONS END */
+
+/* LIST ITEMS START */
+.list-container {
+  width: 100vw;
+  min-width: 520px;
+}
+
+.list-items {
+  margin: 0.5%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: start;
+  flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+.list-item {
+  width: 25%;
+  min-width: 350px;
+  background-color: rgb(211, 214, 219);
+  margin-left: 0.5%;
+  margin-bottom: 0.5%;
+  padding: 0.5%;
+  border: 2px solid black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.wrapper {
+  display: flex;
+  justify-content: space-between;
 }
+/* LIST ITEMS END */
+
+/* MODAL START */
+.modal-container,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background-color: rgba(49, 49, 49, 0.8);
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background-color: #f1f1f1;
+  min-width: 50%;
+  min-height: 50%;
+}
+
+.modal-inputs li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* MODAL END */
