@@ -1,18 +1,11 @@
-import React, { useState } from "react";
-import Modal from "./Modal";
+import React from "react";
 
-const CreateCandidate = () => {
-  const [modal, setModal] = useState(false);
-
-  const toggleModal = () => {
-    setModal(!modal);
-  };
+const CreateCandidate = ({ toggleModal }) => {
   return (
     <>
       <button className="create-btn" onClick={toggleModal}>
         <i className="fa-solid fa-plus fa-xl"></i>
       </button>
-      {modal && <Modal toggleModal={toggleModal} />}
     </>
   );
 };

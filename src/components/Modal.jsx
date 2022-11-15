@@ -1,14 +1,7 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 
-const Modal = ({ toggleModal }) => {
-  const [candidate, setCandidate] = useState({
-    fullName: "",
-    phone: "",
-    email: "",
-    interactions: "",
-    status: "",
-  });
+const Modal = ({ toggleModal, listCandidates, candidate, setCandidate }) => {
   function handleChange(e) {
     const value = e.target.value;
 
@@ -22,21 +15,60 @@ const Modal = ({ toggleModal }) => {
     e.preventDefault();
     toggleModal();
 
-    axios
-      .post("http://localhost:8080/candidate/add", candidate)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    if (candidate.id) {
+      axios
+        .put(`http://localhost:8080/candidate/edit/${candidate.id}`, candidate)
+        .then(function (response) {
+          console.log(response);
+          listCandidates();
+          setCandidate({
+            fullName: "",
+            phone: "",
+            email: "",
+            interactions: "",
+            status: "",
+          });
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    } else {
+      axios
+        .post("http://localhost:8080/candidate/add", candidate)
+        .then(function (response) {
+          console.log(response);
+          listCandidates();
+          setCandidate({
+            fullName: "",
+            phone: "",
+            email: "",
+            interactions: "",
+            status: "",
+          });
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
   }
 
   return (
     <div className="modal-container">
       <div className="overlay"></div>
       <div className="modal-content">
-        <button className="close-btn" onClick={toggleModal}>
+        <button
+          className="close-btn"
+          onClick={() => {
+            toggleModal();
+            setCandidate({
+              fullName: "",
+              phone: "",
+              email: "",
+              interactions: "",
+              status: "",
+            });
+          }}
+        >
           <i className="fa-solid fa-x fa-xl"></i>
         </button>
         <ul className="modal-inputs">

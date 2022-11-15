@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto Mono", monospace;
+  font-family: "Heebo", sans-serif;
   text-decoration: none;
   list-style-type: none;
 }
@@ -42,22 +44,28 @@ header {
   color: #ffff;
 }
 
-.dot-btn {
+.delete-btn {
   width: 3%;
   background-color: rgb(211, 214, 219);
   border: none;
   cursor: pointer;
+  margin-left: 15%;
 }
 
 li button i {
   color: black;
 }
 
-.modal-content .close-btn {
+.close-btn {
   position: absolute;
   top: 5px;
   right: 5px;
   border: none;
+  cursor: pointer;
+}
+
+.fa-trash {
+  color: red;
 }
 
 /* BUTTONS END */

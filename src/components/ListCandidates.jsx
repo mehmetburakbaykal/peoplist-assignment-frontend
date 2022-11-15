@@ -1,6 +1,31 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 
-const ListICandidates = ({ candidates }) => {
+const ListICandidates = ({
+  listCandidates,
+  candidates,
+  toggleModal,
+  setCandidate,
+}) => {
+  const deleteCandidate = (id) => {
+    axios
+      .delete(`http://localhost:8080/candidate/remove/${id}`)
+      .then(function () {
+        listCandidates();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  const editCandidate = (candidate) => {
+    setCandidate(candidate);
+  };
+
+  useEffect(() => {
+    listCandidates();
+  }, []);
+
   return (
     <div className="list-container">
       <ul className="list-items">
@@ -8,9 +33,23 @@ const ListICandidates = ({ candidates }) => {
           <li key={candidate.id} className="list-item">
             <div className="wrapper">
               <h3 className="full-name">{candidate.fullName}</h3>
-              <button className="dot-btn">
-                <i className="fa-solid fa-ellipsis-vertical fa-xl"></i>
-              </button>
+              <div className="btn-container">
+                <button
+                  className="edit-btn"
+                  onClick={() => {
+                    toggleModal();
+                    editCandidate(candidate);
+                  }}
+                >
+                  <i className="fa-solid fa-pen-to-square"></i>
+                </button>
+                <button
+                  className="delete-btn"
+                  onClick={() => deleteCandidate(candidate.id)}
+                >
+                  <i className="fa-solid fa-trash"></i>
+                </button>
+              </div>
             </div>
 
             <hr />
