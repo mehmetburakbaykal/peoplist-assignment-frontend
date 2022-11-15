@@ -39,17 +39,31 @@ header {
   cursor: pointer;
 }
 
-.create-btn i {
+.create-btn > i {
   margin: 25px 40px;
   color: #ffff;
 }
 
+.btn-container {
+  width: 3vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-btn {
+  background-color: rgb(211, 214, 219);
+  cursor: pointer;
+  border: none;
+}
+
 .delete-btn {
-  width: 3%;
   background-color: rgb(211, 214, 219);
   border: none;
   cursor: pointer;
-  margin-left: 15%;
+}
+
+.fa-trash {
+  color: rgb(204, 13, 13);
 }
 
 li button i {
@@ -64,8 +78,8 @@ li button i {
   cursor: pointer;
 }
 
-.fa-trash {
-  color: red;
+.submit-btn {
+  margin-top: 10%;
 }
 
 /* BUTTONS END */
@@ -128,13 +142,15 @@ li button i {
   transform: translate(-50%, -50%);
   line-height: 1.4;
   background-color: #f1f1f1;
-  min-width: 50%;
-  min-height: 50%;
+  min-width: 25%;
+  min-height: 40%;
 }
 
-.modal-inputs li {
+.modal-inputs > li {
+  margin-bottom: 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 /* MODAL END */

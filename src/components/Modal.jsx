@@ -85,6 +85,8 @@ const Modal = ({ toggleModal, listCandidates, candidate, setCandidate }) => {
             <label htmlFor="phone">Phone: </label>
             <input
               type="text"
+              placeholder="05xxxxxxxxx"
+              maxLength="11"
               name="phone"
               value={candidate.phone}
               onChange={handleChange}
@@ -127,11 +129,11 @@ const Modal = ({ toggleModal, listCandidates, candidate, setCandidate }) => {
               <option value="Hired">Hired</option>
             </select>
           </li>
-          <li className="submit">
+          <li className="submit-btn">
             <input
               type="submit"
               name="submit"
-              value="Submit"
+              value={candidate.id ? "Edit":"Create"}
               onClick={handleClick}
             />
           </li>
