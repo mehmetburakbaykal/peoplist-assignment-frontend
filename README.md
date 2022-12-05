@@ -35,3 +35,14 @@ MySQL is used for database. The information kept in the candidate object is;
 ```http
   PUT /candidate/edit/{id}
 ```
+
+## Images
+
+You can add new candidates by clicking the + button and you can also edit candidates informaitons.
+
+![alt text](https://github.com/mehmetburakbaykal/peoplist-assignment-frontend/blob/main/src/images/tss1.png)
+
+View of modal.
+
+![alt text](https://github.com/mehmetburakbaykal/peoplist-assignment-frontend/blob/main/src/images/tss2.png)
+
