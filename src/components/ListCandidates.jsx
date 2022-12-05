@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 
-const ListICandidates = ({
+const ListCandidates = ({
   listCandidates,
   candidates,
   toggleModal,
@@ -68,4 +68,4 @@ const ListICandidates = ({
   );
 };
 
-export default ListICandidates;
+export default ListCandidates;
